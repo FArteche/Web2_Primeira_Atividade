@@ -82,7 +82,7 @@ public class CategoriaController {
 			@PathVariable(value = "id") int id) {
 		if (result.hasErrors()) {
 			msg.addFlashAttribute("erro", "Erro ao editar");
-			return "redirect:/categoria/inserir";
+			return "redirect:/categoria/listar";
 		}
 		Optional<CategoriaModel> cat = repository.findById(id);
 
@@ -90,7 +90,7 @@ public class CategoriaController {
 		BeanUtils.copyProperties(dto, categoria);
 		repository.save(categoria);
 		msg.addFlashAttribute("sucesso", "Categoria editada!");
-		return "redirect:/categoria/inserir";
+		return "redirect:/categoria/listar";
 	}
 
 }
